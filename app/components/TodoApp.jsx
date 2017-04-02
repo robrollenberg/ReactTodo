@@ -1,6 +1,8 @@
 var React = require('react');
 var uiid = require('node-uuid');
 var moment = require('moment');
+// Setting local to nl;
+moment.locale('nl');
 
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
@@ -38,7 +40,7 @@ var TodoApp = React.createClass({
       if (todo.id === id) {
         todo.completed = !todo.completed;
         todo.completeAt = todo.completed ? moment().unix() : undefined;
-      } 
+      }
 
       return todo;
     })

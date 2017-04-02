@@ -1,20 +1,21 @@
 var React = require('react');
 var moment = require('moment');
+moment.locale('nl');
 
 var Todo = React.createClass({
   render: function() {
     var {id, text, completed, createdAt, completeAt} = this.props;
     var todoClassName = completed ? 'todo todo-completed' : 'todo'
     var renderDate = () => {
-        var message = 'Created ';
+        var message = 'Gemaakt op ';
         var timestamp = createdAt;
 
         if (completed) {
-          message = 'Completed ';
+          message = 'Afgerond op ';
           timestamp = completeAt;
         }
 
-        return message + moment.unix(timestamp).format('MMM Do YYYY @ h:mm a');
+        return message + moment.unix(timestamp).format('D MMMM YYYY [om] HH:mm');
     };
 
     return (
